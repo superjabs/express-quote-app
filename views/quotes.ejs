@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="item">
+    <% quotes.forEach(quote => { %>
+    <div class="card">
+      <a href="quote/<%= quote.author %> ">
+        <code class="code">
+          <h3>❝ <%= quote.word %> ❞</h3>
+          <p>- <%= quote.author %></p>
+        </code>
+      </a>
+    </div>
+    <% }) %>
+  </div>
+</div>
