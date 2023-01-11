@@ -40,6 +40,7 @@ nav a {
 .single-item {
   width: 100%;
   align-items: center;
+  margin-top: 120px;
 }
 
 .card {
@@ -56,6 +57,56 @@ nav a {
 
 .card a {
   color: black;
+}
+
+.btn-back {
+  margin: 50px 0;
+  background-color: black;
+  width: 10%;
+  padding: 10px;
+  display: block;
+}
+
+.btn-back,
+.add-btn a {
+  color: white;
+}
+
+.add-btn {
+  margin-top: 5%;
+  background-color: black;
+  width: 10%;
+  padding: 10px;
+}
+
+.add-form {
+  margin: 90px auto;
+  width: 30%;
+  background-color: rgba(240, 240, 240, 0.842);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 5px 0 10px rgba(245, 245, 245, 0.527);
+}
+
+button {
+  padding: 8px;
+  color: white;
+  background-color: black;
+}
+
+form {
+  padding: 20px;
+  margin: 10px auto;
+}
+
+.field {
+  margin: 20px 0;
+}
+
+input {
+  margin-top: 5px;
+  width: 90%;
+  padding: 10px;
 }
 
 @media (max-width: 1000px) {
