@@ -24,4 +24,16 @@ const findQuote = (author) => {
   return quote;
 };
 
-module.exports = { loadQuote, findQuote }
+// menimpa file quotes.js dengan data yang baru
+const saveQuotes = (quotes) => {
+  fs.writeFileSync('data/quotes.json', JSON.stringify(quotes));
+}
+
+// menambahkan data baru
+const addQuote = (quote) => {
+  const quotes = loadQuote();
+  quotes.push(quote);
+  saveQuotes(quotes);
+}
+
+module.exports = { loadQuote, findQuote, addQuote }
