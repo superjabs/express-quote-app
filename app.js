@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 // import utils / method
-const { loadQuote, findQuote } = require('./utils/quotes')
+const { loadQuote, findQuote, addQuote, deleteQuotes, updateQuote } = require('./utils/quotes')
 
 // use ejs view engine
 app.set('view engine', 'ejs');
@@ -14,6 +14,7 @@ app.use(expressLayouts);
 
 // Build in Middleware
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   const nama = 'alfian';
@@ -40,10 +41,55 @@ app.get('/quote', (req, res) => {
   });
 });
 
+// add new quote
+app.get('/quote/add', (req, res) => {
+  res.render('add-quote', {
+    title: 'Add Quote',
+    layout: 'layouts/main-layout'
+  });
+});
+
+// get data from form 
+app.post('/quote', (req, res) => {
+  addQuote(req.body);
+  res.redirect('/quote');
+});
+
+// delete quote
+app.get('/quote/delete/:author', (req, res) => {
+  const quote = findQuote(req.params.author);
+
+  if(!quote){
+    res.send('404');
+  } else{
+    deleteQuotes(req.params.author);
+    res.redirect('/quote');
+  }
+
+});
+
+// update quote
+app.get('/quote/update/:author', (req, res) => {
+  const quote = findQuote(req.params.author);
+
+  res.render('Update-quote', {
+    title: 'Update Quote',
+    layout: 'layouts/main-layout',
+    quote
+  });
+});
+
+// update process
+app.post('/quote/update', (req, res) => {
+  updateQuote(req.body);
+  res.redirect('/quote');
+});
+
+// get quote by author
 app.get('/quote/:author', (req, res) => {
   const quote = findQuote(req.params.author);
   res.render('detail', {
-    title: 'Quotes',
+    title: 'Quotes by ' + quote.author,
     layout: 'layouts/main-layout',
     quote
   });
