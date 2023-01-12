@@ -36,4 +36,24 @@ const addQuote = (quote) => {
   saveQuotes(quotes);
 }
 
-module.exports = { loadQuote, findQuote, addQuote }
+// hapus quote 
+const deleteQuotes = (author) => {
+  const quotes = loadQuote();
+  const filteredQuote = quotes.filter((quote) => quote.author !== author);
+
+  saveQuotes(filteredQuote);
+}
+
+// update Quote 
+const updateQuote = (newQuote) => {
+  const quotes = loadQuote();
+  const filteredQuote = quotes.filter((quote) => 
+    quote.author  !== newQuote.oldAuthor
+  );
+
+  delete newQuote.oldAuthor;
+  filteredQuote.push(newQuote);
+  saveQuotes(filteredQuote);
+}
+
+module.exports = { loadQuote, findQuote, addQuote, deleteQuotes, updateQuote }
