@@ -67,7 +67,10 @@ nav a {
   display: block;
 }
 
-.btn-back,
+.btn-back a {
+  color: white;
+}
+
 .add-btn a {
   color: white;
 }
@@ -107,6 +110,16 @@ input {
   margin-top: 5px;
   width: 90%;
   padding: 10px;
+}
+
+.detail-option {
+  margin: 30px auto;
+}
+
+.detail-option a {
+  color: white;
+  background-color: black;
+  padding: 7px;
 }
 
 @media (max-width: 1000px) {
