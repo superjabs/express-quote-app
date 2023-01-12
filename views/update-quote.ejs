@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="add-form">
+    <h2>Update Quote</h2>
+    <form method="post" action="/quote/update">
+      <input type="hidden" name="oldAuthor" value="<%= quote.author %>" />
+      <input type="hidden" name="oldWord" value="<%= quote.word %>" />
+      <div class="field">
+        <label for="word">Drop Word</label>
+        <input type="text" name="word" required value="<%= quote.word %>" />
+      </div>
+      <div class="field">
+        <label for="author">Author</label>
+        <input type="text" name="author" required value="<%= quote.author %>" />
+      </div>
+      <button class="btn-sumbit" type="submit">submit</button>
+    </form>
+  </div>
+</div>

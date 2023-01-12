@@ -7,4 +7,15 @@
       </code>
     </div>
   </div>
+  <div class="detail-option">
+    <a href="/quote/update/<%= quote.author %>">Update</a>
+    <a
+      onclick="return confirm('yakin ?')"
+      href="/quote/delete/<%= quote.author %>"
+      >Delete</a
+    >
+  </div>
+  <div class="btn-back">
+    <a href="/quote">See Other Quotes</a>
+  </div>
 </div>
